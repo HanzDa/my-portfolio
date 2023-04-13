@@ -40,7 +40,7 @@ function AppHeader() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			id="nav"
-			className="sm:container sm:mx-auto"
+			className="px-5 sticky top-0 z-50 border-b-4 border-sky-500 bg-slate-900"
 		>
 			{/* Header */}
 			<div className="z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center py-6">
