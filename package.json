@@ -1,6 +1,7 @@
 {
   "name": "my-portfolio",
   "private": true,
+  "homepage": "https://hanzda.github.io/my-portfolio/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
