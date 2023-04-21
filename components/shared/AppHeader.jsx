@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { FiSun, FiMoon, FiX, FiMenu } from 'react-icons/fi';
-import HireMeModal from '../HireMeModal';
-import logoLight from '../../public/images/logo-light.svg';
-import logoDark from '../../public/images/logo-dark.svg';
-import useThemeSwitcher from '../../hooks/useThemeSwitcher';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { FiSun, FiMoon, FiX, FiMenu } from "react-icons/fi";
+import HireMeModal from "../HireMeModal";
+import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 
 function AppHeader() {
 	const [showMenu, setShowMenu] = useState(false);
@@ -24,13 +22,13 @@ function AppHeader() {
 	function showHireMeModal() {
 		if (!showModal) {
 			document
-				.getElementsByTagName('html')[0]
-				.classList.add('overflow-y-hidden');
+				.getElementsByTagName("html")[0]
+				.classList.add("overflow-y-hidden");
 			setShowModal(true);
 		} else {
 			document
-				.getElementsByTagName('html')[0]
-				.classList.remove('overflow-y-hidden');
+				.getElementsByTagName("html")[0]
+				.classList.remove("overflow-y-hidden");
 			setShowModal(false);
 		}
 	}
@@ -40,31 +38,23 @@ function AppHeader() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			id="nav"
-			className="px-5 sticky top-0 z-50 border-b-4 border-sky-500 bg-slate-900"
+			className="px-5 sticky top-0 z-50 border-b-4 border-sky-500 bg-ternary-light dark:bg-slate-900"
 		>
 			{/* Header */}
 			<div className="z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center py-6">
 				{/* Header menu links and small screen hamburger menu */}
 				<div className="flex justify-between items-center px-4 sm:px-0">
 					<div>
-						<Link href="/">
-							{activeTheme === 'dark' ? (
-								<Image
-									src={logoDark}
-									className="w-36 cursor-pointer"
-									alt="Dark Logo"
-									width={150}
-									height={120}
-								/>
-							) : (
-								<Image
-									src={logoLight}
-									className="w-36 cursor-pointer"
-									alt="Dark Logo"
-									width={150}
-									height={120}
-								/>
-							)}
+						<Link href="/" className="flex align items-center">
+							<Image
+								src={"/images/logo.png"}
+								className="cursor-pointer rounded-full"
+								alt="Logo"
+								width={60}
+								height={60}
+							/>
+
+							<h2 className="ml-2 text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-2xl">Hanz</h2>
 						</Link>
 					</div>
 
@@ -74,7 +64,7 @@ function AppHeader() {
 						aria-label="Theme Switcher"
 						className="block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
 					>
-						{activeTheme === 'dark' ? (
+						{activeTheme === "dark" ? (
 							<FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
 						) : (
 							<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
@@ -108,8 +98,8 @@ function AppHeader() {
 				<div
 					className={
 						showMenu
-							? 'block m-0 sm:ml-4 sm:mt-3 md:flex px-5 py-3 sm:p-0 justify-between items-center shadow-lg sm:shadow-none'
-							: 'hidden'
+							? "block m-0 sm:ml-4 sm:mt-3 md:flex px-5 py-3 sm:p-0 justify-between items-center shadow-lg sm:shadow-none"
+							: "hidden"
 					}
 				>
 					<div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2">
@@ -179,7 +169,7 @@ function AppHeader() {
 						aria-label="Theme Switcher"
 						className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
 					>
-						{activeTheme === 'dark' ? (
+						{activeTheme === "dark" ? (
 							<FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
 						) : (
 							<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
@@ -189,10 +179,7 @@ function AppHeader() {
 			</div>
 			<div>
 				{showModal ? (
-					<HireMeModal
-						onClose={showHireMeModal}
-						onRequest={showHireMeModal}
-					/>
+					<HireMeModal onClose={showHireMeModal} onRequest={showHireMeModal} />
 				) : null}
 				{showModal ? showHireMeModal : null}
 			</div>
